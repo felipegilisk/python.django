@@ -16,11 +16,6 @@ virtualenv venv
 venv\Scripts\Activate
 ```
 
-        3.1. Desativar o ambiente virtual:
-        ```
-        deactivate
-        ```
-
 4. Instalar as dependências do projeto (no ambiente virtual)
 ```
 pip install -m requirements.txt
@@ -31,12 +26,15 @@ pip install -m requirements.txt
 python manage.py runserver
 ```
 
-        5.1. Desativar o servidor django: CTRL+C no terminal
 
+- Desativar o ambiente virtual:
+    ```
+    deactivate
+    ```
+- Desativar o servidor django: CTRL+C no terminal
 
-
->Para criar um app chamado 'galeria':
->```
->python manage.py startapp galeria
->```
+- Para criar um app chamado 'galeria':
+    ```
+    python manage.py startapp galeria
+    ```
 
