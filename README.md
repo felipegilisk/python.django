@@ -38,3 +38,20 @@ python manage.py runserver
     python manage.py startapp galeria
     ```
 
+6. Para utilizar ORM:
+- Criar classes para ORM em models
+- (venv) Rodar o comando ```python manage.py makemigrations```
+- (venv) Em seguida o comando ```python manage.py migrate```
+
+7. Criar dados na tabela do SQLite:
+- (venv) Executar o comando ```python manage.py shell```
+- A seguir ```from galeria.models import <Classe criada no models>```
+- próximo passo: ```objeto = Classe(atr1="algumacoisa", atr2="outracoisa"...)```
+
+8. Remover dados na tabela do SQLite
+- (venv) Classe.objects.filter(id=<id>).delete()
+- Fechar e abrir o db.sqlite3 para confirmar
+
+9. Criar admin
+- (venv) python manage.py createsuperuser
+- Fornecer nome de usuario, email e senha
