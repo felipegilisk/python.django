@@ -104,6 +104,7 @@ table {
 .busca__input {
     align-items: center;
     background-color: transparent;
+    color: #fff;
     border: none;
     font-size: 1rem;
     height: 24px;

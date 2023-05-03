@@ -55,3 +55,9 @@ python manage.py runserver
 9. Criar admin
 - (venv) python manage.py createsuperuser
 - Fornecer nome de usuario, email e senha
+
+10. Criar nova página
+- Criar função no galeria > views.py
+- Criar path no galeria > urls.py
+- Criar página html no templates > galeria > nova_pagina.html
+- Adequar os menus e elementos universais, como usado no index.html por exemplo
