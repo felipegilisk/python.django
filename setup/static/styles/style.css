@@ -112,6 +112,12 @@ table {
     width: 500px;
 }
 
+.busca__botao {
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
 .busca__icone {
     cursor: pointer;
     width: 2rem;
