@@ -5,29 +5,33 @@ from django.contrib import auth, messages
 
 
 def login(request):
-    form = LoginForms()
+    if request.user.is_authenticated:
+        messages.error(request, 'Usuário já logado!')
+        return redirect('index')
+    else:
+        form = LoginForms()
 
-    if request.method == 'POST':
-        form = LoginForms(request.POST)
+        if request.method == 'POST':
+            form = LoginForms(request.POST)
 
-        if form.is_valid():
-            nome = form['nome_login'].value()
-            senha = form['senha'].value()
+            if form.is_valid():
+                nome = form['nome_login'].value()
+                senha = form['senha'].value()
 
-            usuario = auth.authenticate(
-                request,
-                username=nome,
-                password=senha
-            )
-            if usuario is not None:
-                auth.login(request, usuario)
-                messages.success(request, f"Usuario {nome} autenticado!")
-                return redirect('index')
-            else:
-                messages.error(request, "Erro ao efetuar login")
-                return redirect('login')
+                usuario = auth.authenticate(
+                    request,
+                    username=nome,
+                    password=senha
+                )
+                if usuario is not None:
+                    auth.login(request, usuario)
+                    messages.success(request, f"Usuario {nome} autenticado!")
+                    return redirect('index')
+                else:
+                    messages.error(request, "Erro ao efetuar login")
+                    return redirect('login')
 
-    return render(request, 'usuarios/login.html', {'form': form})
+        return render(request, 'usuarios/login.html', {'form': form, 'bootstrap': True})
 
 
 def cadastro(request):
@@ -58,7 +62,7 @@ def cadastro(request):
             return redirect('login')
 
 
-    return render(request, 'usuarios/cadastro.html', {'form': form})
+    return render(request, 'usuarios/cadastro.html', {'form': form, 'bootstrap': True})
 
 
 def logout(request):
